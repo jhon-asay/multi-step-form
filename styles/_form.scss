@@ -1,0 +1,174 @@
+.form {
+  display: none;
+}
+
+// .label--1 {
+//   margin: 2rem 0 0.25rem 0;
+// }
+
+.label--2 {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  border: solid 1.5px var(--color-primary-light);
+  border-radius: 5px;
+  cursor: pointer;
+
+  margin-top: 2rem;
+
+  &:hover {
+    background-color: var(--color-tertiary);
+  }
+}
+
+.label--3 {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  border: solid 1.5px var(--color-primary-light);
+  border-radius: 5px;
+  margin-top: 2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--color-tertiary);
+  }
+}
+
+.input--1 {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border: solid 2px var(--color-primary-light);
+  border-radius: 3px;
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  &::placeholder {
+    color: var(--color-secondary);
+  }
+
+  &:focus,
+  &:active {
+    outline: none;
+    border: solid 2px var(--color-primary);
+  }
+}
+
+.input--2 {
+  display: none;
+
+  &:checked + label {
+    background-color: var(--color-tertiary);
+    border: solid 1.5px var(--color-primary);
+  }
+}
+
+.input--3 {
+  scale: 1.5;
+  opacity: 0.5;
+  margin: 0 0.5rem;
+
+  &:checked + label {
+    background-color: var(--color-tertiary);
+    border: solid 1.5px var(--color-primary);
+    opacity: 1;
+  }
+}
+
+.toggle__label {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  padding: 2rem 0;
+  border-radius: 5px;
+
+  & > * {
+    cursor: pointer;
+  }
+}
+
+.toggle {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.toggle + .yearly {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toggle + .yearly::before {
+  content: "";
+  width: 5rem;
+  height: 2.5rem;
+  background-color: var(--color-primary);
+  border-radius: 20px;
+}
+
+.toggle + .yearly::after {
+  position: absolute;
+  content: "";
+  left: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease-out;
+}
+
+.toggle:checked + .yearly::after {
+  transform: translateX(2.5rem);
+}
+
+.card__summary {
+  border: solid 1.5px var(--color-primary-light);
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+.card__plan-chosen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: solid 1.5px var(--color-primary-light);
+}
+
+.card__total {
+  display: flex;
+  padding: 0 1.5rem;
+  justify-content: space-between;
+}
+
+.summary__addon-details {
+  padding: 1.5rem;
+}
+
+.summary__addon-details-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.change-sub {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.summary__total-name {
+  font-family: var(--font-primary-bold);
+  color: var(--color-secondary);
+}
+
+.summary__total-price {
+  font-family: var(--font-primary-bold);
+  color: var(--color-quaternary);
+}

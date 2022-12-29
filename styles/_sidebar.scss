@@ -1,0 +1,37 @@
+.sidebar {
+  width: 100vw;
+  // height: 100%;
+  background-image: url(../assets/images/bg-sidebar-mobile.svg);
+  background-size: cover;
+
+  z-index: 0;
+
+  &__column {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 4rem 0 10rem 0;
+  }
+
+  &__steps {
+    display: flex;
+  }
+
+  &__numbers {
+    background: none;
+    border: solid 2px var(--color-primary-light);
+    border-radius: 50%;
+    color: var(--color-primary-light);
+    padding: 0.5rem 1rem;
+  }
+
+  &__number--active {
+    background: var(--color-primary-light);
+    color: var(--color-quaternary);
+    font-family: var(--font-primary-bold);
+  }
+
+  &__labels {
+    display: none;
+  }
+}

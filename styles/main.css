@@ -1,0 +1,343 @@
+@font-face {
+  font-family: "ubuntu-bold";
+  src: url(../assets/fonts/Ubuntu-Bold.ttf);
+}
+@font-face {
+  font-family: "ubuntu-medium";
+  src: url(../assets/fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+  font-family: "ubuntu-regular";
+  src: url(../assets/fonts/Ubuntu-Regular.ttf);
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-primary-regular);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+.button__section {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: white;
+}
+
+.btns {
+  display: none;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: auto;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-primary-medium);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.btn--primary {
+  color: #eee;
+  background-color: hsl(228deg, 45%, 44%);
+}
+.btn--secondary {
+  color: #777;
+  background: none;
+  border: solid 1.5px var(--color-primary-light);
+}
+.btn--confirm {
+  color: #eee;
+  background-color: var(--color-quaternary);
+}
+
+.form {
+  display: none;
+}
+
+.label--2 {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  border: solid 1.5px var(--color-primary-light);
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 2rem;
+}
+.label--2:hover {
+  background-color: var(--color-tertiary);
+}
+
+.label--3 {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  border: solid 1.5px var(--color-primary-light);
+  border-radius: 5px;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+.label--3:hover {
+  background-color: var(--color-tertiary);
+}
+
+.input--1 {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border: solid 2px var(--color-primary-light);
+  border-radius: 3px;
+}
+.input--1:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+.input--1::-moz-placeholder {
+  color: var(--color-secondary);
+}
+.input--1:-ms-input-placeholder {
+  color: var(--color-secondary);
+}
+.input--1::placeholder {
+  color: var(--color-secondary);
+}
+.input--1:focus, .input--1:active {
+  outline: none;
+  border: solid 2px var(--color-primary);
+}
+
+.input--2 {
+  display: none;
+}
+.input--2:checked + label {
+  background-color: var(--color-tertiary);
+  border: solid 1.5px var(--color-primary);
+}
+
+.input--3 {
+  scale: 1.5;
+  opacity: 0.5;
+  margin: 0 0.5rem;
+}
+.input--3:checked + label {
+  background-color: var(--color-tertiary);
+  border: solid 1.5px var(--color-primary);
+  opacity: 1;
+}
+
+.toggle__label {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+  padding: 2rem 0;
+  border-radius: 5px;
+}
+.toggle__label > * {
+  cursor: pointer;
+}
+
+.toggle {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.toggle + .yearly {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.toggle + .yearly::before {
+  content: "";
+  width: 5rem;
+  height: 2.5rem;
+  background-color: var(--color-primary);
+  border-radius: 20px;
+}
+
+.toggle + .yearly::after {
+  position: absolute;
+  content: "";
+  left: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease-out;
+}
+
+.toggle:checked + .yearly::after {
+  transform: translateX(2.5rem);
+}
+
+.card__summary {
+  border: solid 1.5px var(--color-primary-light);
+  border-radius: 5px;
+  margin-bottom: 2rem;
+}
+
+.card__plan-chosen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: solid 1.5px var(--color-primary-light);
+}
+
+.card__total {
+  display: flex;
+  padding: 0 1.5rem;
+  justify-content: space-between;
+}
+
+.summary__addon-details {
+  padding: 1.5rem;
+}
+
+.summary__addon-details-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.change-sub {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.summary__total-name {
+  font-family: var(--font-primary-bold);
+  color: var(--color-secondary);
+}
+
+.summary__total-price {
+  font-family: var(--font-primary-bold);
+  color: var(--color-quaternary);
+}
+
+.body__container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(193, 218, 255);
+}
+
+.form__container {
+  width: 90%;
+  display: flex;
+  margin-inline: auto;
+  margin-top: -6rem;
+  padding: 3rem 2.5rem;
+  background-color: white;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.sidebar {
+  width: 100vw;
+  background-image: url(../assets/images/bg-sidebar-mobile.svg);
+  background-size: cover;
+  z-index: 0;
+}
+.sidebar__column {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 0 10rem 0;
+}
+.sidebar__steps {
+  display: flex;
+}
+.sidebar__numbers {
+  background: none;
+  border: solid 2px var(--color-primary-light);
+  border-radius: 50%;
+  color: var(--color-primary-light);
+  padding: 0.5rem 1rem;
+}
+.sidebar__number--active {
+  background: var(--color-primary-light);
+  color: var(--color-quaternary);
+  font-family: var(--font-primary-bold);
+}
+.sidebar__labels {
+  display: none;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "ubuntu-regular", sans-serif;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-primary-bold);
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.info {
+  font-family: var(--font-primary-regular);
+  color: var(--color-secondary);
+}
+
+.description {
+  display: inline-block;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.show {
+  display: block;
+}
+
+.flex {
+  display: flex;
+}
+
+.u-margin-bot-large {
+  margin-bottom: 2rem;
+}
+
+:root {
+  --color-primary: hsl(228, 45%, 44%);
+  --color-secondary: hsl(0, 0%, 60%);
+  --color-tertiary: hsl(216, 100%, 94%);
+  --color-quaternary: hsl(243, 100%, 62%);
+  --color-primary-light: hsl(227, 70%, 88%);
+  --font-primary-regular: "ubuntu-regular";
+  --font-primary-medium: "ubuntu-medium";
+  --font-primary-bold: "ubuntu-bold";
+}/*# sourceMappingURL=main.css.map */

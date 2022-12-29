@@ -1,0 +1,27 @@
+body {
+  font-size: 1.6rem;
+  font-family: "ubuntu-regular", sans-serif;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-family: var(--font-primary-bold);
+  color: var(--color-primary);
+  margin-bottom: 0.25rem;
+}
+
+.info {
+  font-family: var(--font-primary-regular);
+  color: var(--color-secondary);
+}
+
+.description {
+  display: inline-block;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: var(--color-secondary);
+  margin-bottom: 2rem;
+}
