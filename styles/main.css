@@ -49,6 +49,7 @@ video {
 .btn {
   padding: 0.75rem 1.5rem;
   font-family: var(--font-primary-medium);
+  font-size: 1.5rem;
   border: none;
   border-radius: 3px;
   cursor: pointer;
@@ -88,8 +89,8 @@ video {
   padding: 2rem;
   border: solid 1.5px var(--color-primary-light);
   border-radius: 5px;
+  margin-top: 1.5rem;
   cursor: pointer;
-  margin-top: 2rem;
 }
 .label--2:hover {
   background-color: var(--color-tertiary);
@@ -101,7 +102,7 @@ video {
   padding: 2rem;
   border: solid 1.5px var(--color-primary-light);
   border-radius: 5px;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   cursor: pointer;
 }
 .label--3:hover {
@@ -144,7 +145,7 @@ video {
 .input--3 {
   scale: 1.5;
   opacity: 0.5;
-  margin: 0 0.5rem;
+  align-items: center;
 }
 .input--3:checked + label {
   background-color: var(--color-tertiary);
@@ -246,9 +247,6 @@ video {
 }
 
 .body__container {
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
   height: 100vh;
   background-color: rgb(193, 218, 255);
 }
@@ -258,7 +256,7 @@ video {
   display: flex;
   margin-inline: auto;
   margin-top: -6rem;
-  padding: 3rem 2.5rem;
+  padding: 2rem;
   background-color: white;
   border: none;
   border-radius: 10px;
@@ -286,6 +284,7 @@ video {
   border: solid 2px var(--color-primary-light);
   border-radius: 50%;
   color: var(--color-primary-light);
+  font-size: 1.6rem;
   padding: 0.5rem 1rem;
 }
 .sidebar__number--active {
@@ -298,12 +297,9 @@ video {
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-family: "ubuntu-regular", sans-serif;
-}
-
-h2 {
-  margin-bottom: 1rem;
+  letter-spacing: -0.025rem;
 }
 
 .title {
@@ -322,7 +318,6 @@ h2 {
   font-size: 1.6rem;
   line-height: 1.4;
   color: var(--color-secondary);
-  margin-bottom: 2rem;
 }
 
 .hidden {
@@ -338,8 +333,12 @@ h2 {
   display: flex;
 }
 
+.u-margin-bot-small {
+  margin-bottom: 0.75rem;
+}
+
 .u-margin-bot-large {
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 :root {

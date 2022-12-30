@@ -1,24 +1,16 @@
 .body__container {
-  display: flex;
-  flex-direction: column;
-
-  width: 100vw;
   height: 100vh;
   background-color: rgb(193, 218, 255);
 }
 
 .form__container {
-  // position: relative;
   width: 90%;
-  // height: max-content;
   display: flex;
 
   margin-inline: auto;
   margin-top: -6rem;
 
-  // top: 13%;
-  // left: 5%;
-  padding: 3rem 2.5rem;
+  padding: 2rem;
   background-color: white;
   border: none;
   border-radius: 10px;
