@@ -71,6 +71,17 @@ video {
   display: none;
 }
 
+.form--5 {
+  text-align: center;
+  padding: 2rem;
+  padding-bottom: 0;
+}
+
+.icon {
+  margin-bottom: 3rem;
+  margin-inline: auto;
+}
+
 .label--2 {
   display: flex;
   gap: 2rem;
