@@ -22,7 +22,8 @@
     border-radius: 50%;
     color: var(--color-primary-light);
     font-size: 1.6rem;
-    padding: 0.5rem 1rem;
+    line-height: 0.5;
+    padding: 1rem 1rem;
   }
 
   &__number--active {

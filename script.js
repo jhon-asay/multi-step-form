@@ -1,9 +1,29 @@
 "use strict";
 
+const arcadeIcon = new Image("assets/images/icon-arcade.svg");
+
 const Plans = [
-  { id: "arcade", name: "Arcade", monthlyPrice: 9, yearlyPrice: 90 },
-  { id: "advanced", name: "Advanced", monthlyPrice: 12, yearlyPrice: 120 },
-  { id: "pro", name: "Pro", monthlyPrice: 15, yearlyPrice: 150 },
+  {
+    id: "arcade",
+    name: "Arcade",
+    planIcon: "assets/images/icon-arcade.svg",
+    monthlyPrice: 9,
+    yearlyPrice: 90,
+  },
+  {
+    id: "advanced",
+    name: "Advanced",
+    planIcon: "assets/images/icon-advanced.svg",
+    monthlyPrice: 12,
+    yearlyPrice: 120,
+  },
+  {
+    id: "pro",
+    name: "Pro",
+    planIcon: "assets/images/icon-pro.svg",
+    monthlyPrice: 15,
+    yearlyPrice: 150,
+  },
 ];
 
 const AddOns = [
@@ -35,23 +55,90 @@ const UserInfo = {
   addOn: [],
 };
 
-// const toggleLabel = document.querySelector(".toggle__label");
-// const planPrices = document.querySelectorAll(".plan-price");
-// const label2 = document.querySelectorAll(".label--2");
+// Add toggle functionality and if statement for window.onload for monthly and yearly prices. Also make addon prices dynamic as well. Maybe change window.onload to regular function with eventListener.
 
-// const initPrices = async () => {
-//   for (let i = 0; i < Plans.length; i++) {
-//     label2.forEach((label) => {
-//       if (label.htmlFor === Plans[i].id) {
-//         planPrices.innerHTML = `$${Plans[i].monthlyPrice}/mo`;
-//         console.log(Plans[i].monthlyPrice);
-//         console.log(planPrices.innerHTML);
-//       }
-//     });
-//   }
-// };
+const monthlyPriceToggle = document.querySelector(".monthly");
+const yearlyPriceToggle = document.querySelector(".yearly");
+const toggleInput = document.querySelector(".toggle");
 
-// document.addEventListener("load", initPrices);
+const label2 = document.querySelectorAll(".label--2");
+const planDescription = document.querySelectorAll(".plan__description");
+
+const planMonthlyPrices = Plans.map((prices) => prices.monthlyPrice);
+console.log(planMonthlyPrices);
+
+// match element to Plan
+// insert correct price to element
+
+const displayMonthlyPrices = () => {
+  for (let i = 0; i < Plans.length; i++) {
+    label2.forEach((label) => {
+      if (label.htmlFor === Plans[i].id) {
+        label.innerHTML = "";
+        label.insertAdjacentHTML(
+          "beforeend",
+          `<img
+            src=${Plans[i].planIcon}
+            alt="${Plans[i].name} subscription icon"
+            />
+            <div class="plan__description arcade"><h3 class="title">${Plans[i].name}</h3><span class="info plan-price">$${Plans[i].monthlyPrice}/mo</span></div>`
+        );
+      }
+    });
+  }
+};
+
+const displayYearlyPrices = () => {
+  for (let i = 0; i < Plans.length; i++) {
+    label2.forEach((label) => {
+      if (label.htmlFor === Plans[i].id) {
+        label.innerHTML = "";
+        label.insertAdjacentHTML(
+          "beforeend",
+          `<img
+          src=${Plans[i].planIcon}
+          alt="${Plans[i].name} subscription icon"
+          />
+          <div class="card__description"><h3 class="title">${Plans[i].name}</h3><p class="info plan-price">$${Plans[i].yearlyPrice}/yr</p><p class="title">2 months free</p></div>`
+        );
+      }
+    });
+  }
+};
+
+const togglePrices = () => {
+  if (toggleInput.checked) {
+    displayYearlyPrices();
+    monthlyPriceToggle.classList.remove("selected");
+    yearlyPriceToggle.classList.add("selected");
+  } else {
+    displayMonthlyPrices();
+    yearlyPriceToggle.classList.remove("selected");
+    monthlyPriceToggle.classList.add("selected");
+  }
+};
+
+window.onload = () => {
+  togglePrices();
+  // const label2 = document.querySelectorAll(".label--2");
+  // for (let i = 0; i < Plans.length; i++) {
+  //   label2.forEach((label) => {
+  //     if (label.htmlFor === Plans[i].id) {
+  //       label.insertAdjacentHTML(
+  //         "beforeend",
+  //         `<div class="card__description"><h3 class="title">${Plans[i].name}</h3><span class="info plan-price">$${Plans[i].monthlyPrice}/mo</span></div>`
+  //       );
+  //     }
+  //   });
+  // }
+};
+
+const toggleLabel = document.querySelector(".toggle__label");
+
+toggleLabel.addEventListener("click", () => {
+  label2.innerHTML = "";
+  togglePrices();
+});
 
 const findInfoForInput = (input, info) => {
   const inputId = input.id;
@@ -84,19 +171,17 @@ const displayUserInfo = () => {
   summaryPlanName.innerText = UserInfo.plan.name;
   summaryPlanPrice.innerText = `$${UserInfo.plan.monthlyPrice}/mo`;
 
+  summaryAddOnDetails.innerHTML = "";
+
   let addOnTotal = UserInfo.plan.monthlyPrice;
 
   for (let i = 0; i < UserInfo.addOn.length; i++) {
     addOnTotal += UserInfo.addOn[i].monthlyPrice;
 
-    // summaryAddOnDetails = "";
-
     summaryAddOnDetails.insertAdjacentHTML(
       "beforeend",
       `<div class="summary__addon-details-row"><h4 class="summary__addon-name info">${UserInfo.addOn[i].name}</h4><span class="summary__addon-price info">$${UserInfo.addOn[i].monthlyPrice}/mo</span></div>`
     );
-    console.log(UserInfo.addOn[i]);
-    console.log(i);
   }
 
   summaryTotalPrice.innerText = `$${addOnTotal}/mo`;

@@ -1,17 +1,21 @@
 body {
   font-size: 1.4rem;
-  font-family: "ubuntu-regular", sans-serif;
+  font-family: var(--font-primary-regular), sans-serif;
   letter-spacing: -0.025rem;
 }
 
-.title {
+h2 {
   font-family: var(--font-primary-bold);
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.title {
   color: var(--color-primary);
   margin-bottom: 0.25rem;
 }
 
 .info {
-  font-family: var(--font-primary-regular);
   color: var(--color-secondary);
 }
 

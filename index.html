@@ -76,7 +76,7 @@
         <!-- Step 1 start -->
 
         <form id="form1" class="form form--1 show">
-          <h2 class="title u-margin-bot-small">Personal info</h2>
+          <h2>Personal info</h2>
           <span class="description u-margin-bot-large"
             >Please provide your name, email address, and phone number.</span
           >
@@ -117,7 +117,7 @@
         <!-- Step 2 start -->
 
         <form id="form2" class="form form--2">
-          <h2 class="title u-margin-bot-small">Select your plan</h2>
+          <h2>Select your plan</h2>
           <span class="description"
             >You have the option of monthly or yearly billing.</span
           >
@@ -131,16 +131,7 @@
                 value="Arcade"
                 required
               />
-              <label class="label--2" for="arcade">
-                <img
-                  src="assets/images/icon-arcade.svg"
-                  alt="Arcade subscription icon"
-                />
-                <div class="card__description">
-                  <h3 class="title">Arcade</h3>
-                  <span class="info plan-price">$9/mo</span>
-                </div>
-              </label>
+              <label class="label--2" for="arcade"> </label>
             </div>
             <div class="card__option">
               <input
@@ -151,14 +142,7 @@
                 value="Advanced"
               />
               <label class="label--2" for="advanced">
-                <img
-                  src="assets/images/icon-advanced.svg"
-                  alt="Advanced subscription icon"
-                />
-                <div class="card__description">
-                  <h3 class="title">Advanced</h3>
-                  <span class="info plan-price">$12/mo</span>
-                </div>
+                <div class="plan__description advanced"></div>
               </label>
             </div>
             <div class="card__option">
@@ -170,30 +154,23 @@
                 value="Pro"
               />
               <label class="label--2" for="pro">
-                <img
-                  src="assets/images/icon-pro.svg"
-                  alt="Pro subscription icon"
-                />
-                <div class="card__description">
-                  <h3 class="title">Pro</h3>
-                  <span class="info plan-price">$15/mo</span>
-                </div>
+                <div class="plan__description pro"></div>
               </label>
             </div>
           </div>
 
-          <!-- <div class="toggle__container">
-          <label class="toggle__label" for="toggle"
-            ><span>Monthly</span
-            ><input
-              class="toggle"
-              type="checkbox"
-              id="toggle"
-              name="toggle"
-              value="pricing"
-            /><span class="yearly">Yearly</span></label
-          >
-        </div> -->
+          <div class="toggle__container">
+            <label class="toggle__label" for="toggle"
+              ><span class="monthly selected">Monthly</span
+              ><input
+                class="toggle"
+                type="checkbox"
+                id="toggle"
+                name="toggle"
+                value="pricing"
+              /><span class="yearly">Yearly</span></label
+            >
+          </div>
         </form>
 
         <!-- Step 2 end -->
@@ -201,7 +178,7 @@
         <!-- Step 3 start -->
 
         <form id="form3" class="form form--3">
-          <h2 class="title u-margin-bot-small">Pick add-ons</h2>
+          <h2>Pick add-ons</h2>
           <span class="description"
             >Add-ons help enhance your gaming experience.</span
           >
@@ -217,8 +194,9 @@
                 />
                 <div class="card__details">
                   <h3 class="title">Online service</h3>
-                  <span class="info">Access to multiplayer games +$1/mo</span>
+                  <span class="info">Access to multiplayer games</span>
                 </div>
+                <span class="add-on__price">+$1/mo</span>
               </label>
             </div>
             <div class="card__option">
@@ -232,8 +210,9 @@
                 />
                 <div class="card__details">
                   <h3 class="title">Larger storage</h3>
-                  <span class="info">Extra 1TB of cloud save +$2/mo</span>
+                  <span class="info">Extra 1TB of cloud save</span>
                 </div>
+                <span class="add-on__price">+$2/mo</span>
               </label>
             </div>
             <div class="card__option">
@@ -247,8 +226,9 @@
                 />
                 <div class="card__details">
                   <h3 class="title">Customizable profile</h3>
-                  <span class="info">Custom theme on your profile +$2/mo</span>
+                  <span class="info">Custom theme on your profile</span>
                 </div>
+                <span class="add-on__price">+$2/mo</span>
               </label>
             </div>
           </div>
@@ -259,7 +239,7 @@
         <!-- Step 4 start -->
 
         <form id="form4" class="form form--4">
-          <h2 class="title u-margin-bot-small">Finishing up</h2>
+          <h2>Finishing up</h2>
           <span class="description u-margin-bot-large"
             >Double-check everything looks OK before confirming.</span
           >
@@ -293,7 +273,7 @@
             src="assets/images/icon-thank-you.svg"
             alt="Thank you icon"
           />
-          <h2 class="title u-margin-bot-large">Thank you!</h2>
+          <h2>Thank you!</h2>
           <p class="description u-margin-bot-large">
             Thanks for confirming your subscription! We hope you have fun using
             our platform. If you ever need support, please feel free to email us
