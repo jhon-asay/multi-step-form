@@ -28,6 +28,7 @@
 }
 
 .label--3 {
+  position: relative;
   display: flex;
   gap: 1rem;
   padding: 1.5rem 1rem;
@@ -41,7 +42,11 @@
   }
 }
 
-.add-on__price {
+.addon__description {
+  margin-left: 4rem;
+}
+
+.addon__price {
   margin-left: auto;
   align-self: center;
   color: var(--color-quaternary);
@@ -80,15 +85,14 @@
 }
 
 .input--3 {
+  position: absolute;
   scale: 1.5;
-  opacity: 0.5;
-  align-self: center;
-  margin: 0 0.5rem;
+  transform: translate(100%, 140%);
+  z-index: 1;
 
   &:checked + label {
     background-color: var(--color-tertiary);
     border: solid 1.5px var(--color-primary);
-    opacity: 1;
   }
 }
 
@@ -97,7 +101,8 @@
   gap: 1rem;
   justify-content: center;
   align-items: center;
-  background-color: #eee;
+  background-color: hsl(217, 100%, 97%);
+  color: var(--color-secondary);
   padding: 1.5rem 0;
   border-radius: 5px;
   margin-top: 1.5rem;
@@ -105,6 +110,11 @@
   & > * {
     cursor: pointer;
   }
+}
+
+.selected {
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 .toggle {

@@ -1,7 +1,5 @@
 "use strict";
 
-const arcadeIcon = new Image("assets/images/icon-arcade.svg");
-
 const Plans = [
   {
     id: "arcade",
@@ -30,18 +28,21 @@ const AddOns = [
   {
     id: "online-service",
     name: "Online service",
+    description: "Access to multiplayer games",
     monthlyPrice: 1,
     yearlyPrice: 10,
   },
   {
     id: "larger-storage",
     name: "Larger storage",
+    description: "Extra 1TB of cloud save",
     monthlyPrice: 2,
     yearlyPrice: 20,
   },
   {
     id: "customizable-profile",
     name: "Customizable profile",
+    description: "Custom theme on your profile",
     monthlyPrice: 2,
     yearlyPrice: 20,
   },
@@ -55,55 +56,120 @@ const UserInfo = {
   addOn: [],
 };
 
-// Add toggle functionality and if statement for window.onload for monthly and yearly prices. Also make addon prices dynamic as well. Maybe change window.onload to regular function with eventListener.
+// Add dynamic pricing to totals
+// if button was toggled to yearly
 
 const monthlyPriceToggle = document.querySelector(".monthly");
 const yearlyPriceToggle = document.querySelector(".yearly");
 const toggleInput = document.querySelector(".toggle");
 
 const label2 = document.querySelectorAll(".label--2");
-const planDescription = document.querySelectorAll(".plan__description");
-
-const planMonthlyPrices = Plans.map((prices) => prices.monthlyPrice);
-console.log(planMonthlyPrices);
-
-// match element to Plan
-// insert correct price to element
+const label3 = document.querySelectorAll(".label--3");
 
 const displayMonthlyPrices = () => {
-  for (let i = 0; i < Plans.length; i++) {
+  Plans.forEach((plan) => {
     label2.forEach((label) => {
-      if (label.htmlFor === Plans[i].id) {
+      if (label.htmlFor === plan.id) {
         label.innerHTML = "";
         label.insertAdjacentHTML(
           "beforeend",
-          `<img
-            src=${Plans[i].planIcon}
-            alt="${Plans[i].name} subscription icon"
+          `
+          <img
+            src=${plan.planIcon}
+            alt="${plan.name} subscription icon"
             />
-            <div class="plan__description arcade"><h3 class="title">${Plans[i].name}</h3><span class="info plan-price">$${Plans[i].monthlyPrice}/mo</span></div>`
+          <div class="plan__description arcade">
+            <h3 class="title">
+              ${plan.name}
+            </h3>
+            <span class="info plan-price">
+              $${plan.monthlyPrice}/mo
+            </span>
+          </div>`
         );
       }
     });
-  }
+  });
+
+  AddOns.forEach((addon) => {
+    label3.forEach((label) => {
+      if (label.htmlFor === addon.id) {
+        label.innerHTML = "";
+        label.insertAdjacentHTML(
+          "beforeend",
+          `
+          <div class="addon__description arcade">
+            <h3 class="title">
+              ${addon.name}
+            </h3>
+            <span class="info">
+              ${addon.description}
+            </span>
+          </div>
+          <span class="info addon__price">
+            $${addon.monthlyPrice}/mo
+          </span>
+          `
+        );
+      }
+    });
+  });
 };
 
 const displayYearlyPrices = () => {
-  for (let i = 0; i < Plans.length; i++) {
+  Plans.forEach((plan) => {
     label2.forEach((label) => {
-      if (label.htmlFor === Plans[i].id) {
+      if (label.htmlFor === plan.id) {
         label.innerHTML = "";
         label.insertAdjacentHTML(
           "beforeend",
-          `<img
-          src=${Plans[i].planIcon}
-          alt="${Plans[i].name} subscription icon"
-          />
-          <div class="card__description"><h3 class="title">${Plans[i].name}</h3><p class="info plan-price">$${Plans[i].yearlyPrice}/yr</p><p class="title">2 months free</p></div>`
+          `
+          <img
+            src=${plan.planIcon}
+            alt="${plan.name} subscription icon"
+            />
+          <div class="card__description">
+            <h3 class="title">
+              ${plan.name}
+            </h3>
+            <p class="info plan-price">
+              $${plan.yearlyPrice}/yr
+            </p>
+            <p class="title">
+              2 months free
+            </p>
+          </div>`
         );
       }
     });
-  }
+  });
+
+  AddOns.forEach((addon) => {
+    label3.forEach((label) => {
+      if (label.htmlFor === addon.id) {
+        label.innerHTML = "";
+        label.insertAdjacentHTML(
+          "beforeend",
+          `
+          <div class="addon__description arcade">
+            <h3 class="title">
+              ${addon.name}
+            </h3>
+            <p class="info">
+              ${addon.description}
+            </p>
+            <p class="title">
+              2 months free
+            </p>
+          </div>
+          <span class="info addon__price">
+            $${addon.yearlyPrice}/yr
+          </span>
+          `
+        );
+      }
+    });
+  });
 };
 
 const togglePrices = () => {
@@ -120,25 +186,11 @@ const togglePrices = () => {
 
 window.onload = () => {
   togglePrices();
-  // const label2 = document.querySelectorAll(".label--2");
-  // for (let i = 0; i < Plans.length; i++) {
-  //   label2.forEach((label) => {
-  //     if (label.htmlFor === Plans[i].id) {
-  //       label.insertAdjacentHTML(
-  //         "beforeend",
-  //         `<div class="card__description"><h3 class="title">${Plans[i].name}</h3><span class="info plan-price">$${Plans[i].monthlyPrice}/mo</span></div>`
-  //       );
-  //     }
-  //   });
-  // }
 };
 
 const toggleLabel = document.querySelector(".toggle__label");
 
-toggleLabel.addEventListener("click", () => {
-  label2.innerHTML = "";
-  togglePrices();
-});
+toggleLabel.addEventListener("click", togglePrices);
 
 const findInfoForInput = (input, info) => {
   const inputId = input.id;
@@ -165,26 +217,54 @@ const summaryPlanPrice = document.querySelector(".summary__plan-price");
 const summaryAddOnName = document.querySelector(".summary__addon-name");
 const summaryAddOnPrice = document.querySelector(".summary__addon-price");
 const summaryAddOnDetails = document.querySelector(".summary__addon-details");
+const summaryTotalName = document.querySelector(".summary__total-name");
 const summaryTotalPrice = document.querySelector(".summary__total-price");
 
+const calcTotalPrice = () => {
+  let total = UserInfo.plan.monthlyPrice;
+
+  UserInfo.addOn.forEach((addon) => (total += addon.monthlyPrice));
+
+  return total;
+};
+
 const displayUserInfo = () => {
+  let planTotal = UserInfo.plan.monthlyPrice;
+  let totalPrice = calcTotalPrice();
+  let termShort = "mo";
+  let termLong = "month";
+
+  if (toggleInput.checked) {
+    planTotal *= 10;
+    totalPrice *= 10;
+    termShort = "yr";
+    termLong = "year";
+  }
+
   summaryPlanName.innerText = UserInfo.plan.name;
-  summaryPlanPrice.innerText = `$${UserInfo.plan.monthlyPrice}/mo`;
+  summaryPlanPrice.innerText = `$${planTotal}/${termShort}`;
 
   summaryAddOnDetails.innerHTML = "";
 
-  let addOnTotal = UserInfo.plan.monthlyPrice;
-
-  for (let i = 0; i < UserInfo.addOn.length; i++) {
-    addOnTotal += UserInfo.addOn[i].monthlyPrice;
-
+  UserInfo.addOn.forEach((addon) => {
     summaryAddOnDetails.insertAdjacentHTML(
       "beforeend",
-      `<div class="summary__addon-details-row"><h4 class="summary__addon-name info">${UserInfo.addOn[i].name}</h4><span class="summary__addon-price info">$${UserInfo.addOn[i].monthlyPrice}/mo</span></div>`
+      `
+        <div class="summary__addon-details-row">
+          <h4 class="summary__addon-name info">
+            ${addon.name}
+          </h4>
+          <span class="summary__addon-price info">
+            $${
+              toggleInput.checked ? addon.yearlyPrice : addon.monthlyPrice
+            }/${termShort}
+          </span>
+        </div>`
     );
-  }
+  });
 
-  summaryTotalPrice.innerText = `$${addOnTotal}/mo`;
+  summaryTotalName.innerText = `Total (per ${termLong})`;
+  summaryTotalPrice.innerText = `$${totalPrice}/${termShort}`;
 };
 
 // MOVE FORM PAGE
@@ -264,6 +344,7 @@ nextButtons.forEach((btn) => {
     recordInfo(inputs);
     goToNextPage();
     displayUserInfo();
+    calcTotalPrice();
     //validateRequiredFields()
     console.log(UserInfo);
   });
