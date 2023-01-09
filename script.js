@@ -56,8 +56,60 @@ const UserInfo = {
   addOn: [],
 };
 
-// Add dynamic pricing to totals
-// if button was toggled to yearly
+// add change plan button and functionality
+
+// add media queries
+
+const input1 = document.querySelectorAll(".input--1");
+const alert = document.querySelectorAll(".alert");
+
+const validateRequiredFields = () => {
+  let complete = 0;
+
+  const namePattern = /^[a-zA-Z ]{4,}$/;
+  const emailPattern = /^[a-zA-Z0-9._-]{4,}@[a-zA-Z0-9.-]{4,}\.[a-zA-Z]{2,4}$/;
+  const phonePattern = /^\+?[0-9]{10,12}$/;
+
+  for (let i = 0; i < input1.length; i++) {
+    let input = input1[i];
+    let empty = input.value.length === 0;
+    const prevElement = input.previousElementSibling;
+
+    if (empty) {
+      prevElement.classList.add("show");
+      prevElement.innerText = "Please complete field";
+    }
+
+    if (!empty) {
+      prevElement.classList.add("show");
+
+      if (input.id === "name" && !namePattern.test(input.value)) {
+        prevElement.innerText = "Enter letters only (Minimum 4 characters)";
+      } else if (namePattern.test(input.value)) {
+        prevElement.classList.remove("show");
+        complete++;
+      }
+
+      if (input.id === "email" && !emailPattern.test(input.value)) {
+        prevElement.innerText = "Enter valid email";
+      } else if (emailPattern.test(input.value)) {
+        prevElement.classList.remove("show");
+        complete++;
+      }
+
+      if (input.id === "phone" && !phonePattern.test(input.value)) {
+        prevElement.innerText = "Enter numbers only (Minimum 10 characters)";
+      } else if (phonePattern.test(input.value)) {
+        prevElement.classList.remove("show");
+        complete++;
+      }
+    }
+  }
+
+  if (complete === 3) {
+    goToNextPage();
+  }
+};
 
 const monthlyPriceToggle = document.querySelector(".monthly");
 const yearlyPriceToggle = document.querySelector(".yearly");
@@ -66,7 +118,15 @@ const toggleInput = document.querySelector(".toggle");
 const label2 = document.querySelectorAll(".label--2");
 const label3 = document.querySelectorAll(".label--3");
 
-const displayMonthlyPrices = () => {
+const displayPrices = () => {
+  const savings = `
+  <p class="title">
+    2 months free
+  </p>
+  `;
+
+  const yearly = toggleInput.checked;
+
   Plans.forEach((plan) => {
     label2.forEach((label) => {
       if (label.htmlFor === plan.id) {
@@ -82,63 +142,14 @@ const displayMonthlyPrices = () => {
             <h3 class="title">
               ${plan.name}
             </h3>
-            <span class="info plan-price">
-              $${plan.monthlyPrice}/mo
-            </span>
-          </div>`
-        );
-      }
-    });
-  });
-
-  AddOns.forEach((addon) => {
-    label3.forEach((label) => {
-      if (label.htmlFor === addon.id) {
-        label.innerHTML = "";
-        label.insertAdjacentHTML(
-          "beforeend",
-          `
-          <div class="addon__description arcade">
-            <h3 class="title">
-              ${addon.name}
-            </h3>
-            <span class="info">
-              ${addon.description}
-            </span>
-          </div>
-          <span class="info addon__price">
-            $${addon.monthlyPrice}/mo
-          </span>
-          `
-        );
-      }
-    });
-  });
-};
-
-const displayYearlyPrices = () => {
-  Plans.forEach((plan) => {
-    label2.forEach((label) => {
-      if (label.htmlFor === plan.id) {
-        label.innerHTML = "";
-        label.insertAdjacentHTML(
-          "beforeend",
-          `
-          <img
-            src=${plan.planIcon}
-            alt="${plan.name} subscription icon"
-            />
-          <div class="card__description">
-            <h3 class="title">
-              ${plan.name}
-            </h3>
             <p class="info plan-price">
-              $${plan.yearlyPrice}/yr
+              $${yearly ? plan.yearlyPrice : plan.monthlyPrice}/${
+            yearly ? "yr" : "mo"
+          }
             </p>
-            <p class="title">
-              2 months free
-            </p>
-          </div>`
+            ${yearly ? savings : ""} 
+          </div>
+          `
         );
       }
     });
@@ -158,12 +169,12 @@ const displayYearlyPrices = () => {
             <p class="info">
               ${addon.description}
             </p>
-            <p class="title">
-              2 months free
-            </p>
+            ${yearly ? savings : ""} 
           </div>
           <span class="info addon__price">
-            $${addon.yearlyPrice}/yr
+            $${yearly ? addon.yearlyPrice : addon.monthlyPrice}/${
+            yearly ? "yr" : "mo"
+          }
           </span>
           `
         );
@@ -173,12 +184,12 @@ const displayYearlyPrices = () => {
 };
 
 const togglePrices = () => {
+  displayPrices();
+
   if (toggleInput.checked) {
-    displayYearlyPrices();
     monthlyPriceToggle.classList.remove("selected");
     yearlyPriceToggle.classList.add("selected");
   } else {
-    displayMonthlyPrices();
     yearlyPriceToggle.classList.remove("selected");
     monthlyPriceToggle.classList.add("selected");
   }
@@ -342,11 +353,9 @@ const nextButtons = document.querySelectorAll(".btn--next");
 nextButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     recordInfo(inputs);
-    goToNextPage();
     displayUserInfo();
     calcTotalPrice();
-    //validateRequiredFields()
-    console.log(UserInfo);
+    validateRequiredFields();
   });
 });
 
@@ -363,5 +372,3 @@ const confirmButton = document.querySelector(".btn--confirm");
 confirmButton.addEventListener("click", () => {
   goToNextPage();
 });
-
-console.log(UserInfo);

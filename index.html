@@ -9,7 +9,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./images/favicon-32x32.png"
+      href="assets/images/favicon-32x32.png"
     />
 
     <title>Frontend Mentor | Multi-step form</title>
@@ -81,16 +81,17 @@
             >Please provide your name, email address, and phone number.</span
           >
           <label class="title label--1" for="name">Name</label>
+          <p class="alert">Please complete field.</p>
           <input
             class="input input--1"
             type="text"
             id="name"
             name="name"
-            pattern="[A-Za-z]{3,20}"
             placeholder="e.g. Stephen King"
             required
           />
           <label class="title label--1" for="email">Email Address</label>
+          <p class="alert">Please complete field.</p>
           <input
             class="input input--1"
             type="email"
@@ -101,12 +102,12 @@
           />
 
           <label class="title label--1" for="phone"> Phone Number </label>
+          <p class="alert">Please complete field.</p>
           <input
             class="input input--1"
             type="tel"
             id="phone"
             name="phone"
-            pattern="[d/+]{7,15}"
             placeholder="e.g. +1 234 567 890"
             required
           />
@@ -130,6 +131,7 @@
                 name="subscription"
                 value="Arcade"
                 required
+                checked
               />
               <label class="label--2" for="arcade"> </label>
             </div>

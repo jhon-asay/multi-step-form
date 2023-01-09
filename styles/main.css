@@ -70,6 +70,7 @@ video {
 
 .form {
   display: none;
+  width: 100%;
 }
 
 .form--5 {
@@ -118,6 +119,10 @@ video {
   margin-left: auto;
   align-self: center;
   color: var(--color-quaternary);
+}
+
+.alert {
+  display: none;
 }
 
 .input--1 {
