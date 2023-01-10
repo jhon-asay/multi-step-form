@@ -58,8 +58,6 @@ const UserInfo = {
 
 // add change plan button and functionality
 
-// add media queries
-
 const input1 = document.querySelectorAll(".input--1");
 const alert = document.querySelectorAll(".alert");
 
@@ -135,6 +133,7 @@ const displayPrices = () => {
           "beforeend",
           `
           <img
+            class="plan__icon" 
             src=${plan.planIcon}
             alt="${plan.name} subscription icon"
             />

@@ -21,9 +21,9 @@
     border: solid 2px var(--color-primary-light);
     border-radius: 50%;
     color: var(--color-primary-light);
-    font-size: 1.6rem;
+    font-size: inherit;
     line-height: 0.5;
-    padding: 1rem 1rem;
+    padding: 1.5rem 1.5rem;
   }
 
   &__number--active {

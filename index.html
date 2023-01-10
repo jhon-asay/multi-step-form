@@ -33,275 +33,281 @@
     <div class="body__container">
       <!-- Sidebar start -->
 
-      <nav>
-        <div class="sidebar">
-          <div class="sidebar__column">
-            <div class="sidebar__steps">
-              <button class="sidebar__numbers sidebar__number--active">
-                1
-              </button>
-              <div class="sidebar__labels">
-                <span>Step 1</span>
-                <span>Your info</span>
-              </div>
+      <div class="sidebar">
+        <div class="sidebar__column">
+          <div class="sidebar__steps">
+            <button class="sidebar__numbers sidebar__number--active">1</button>
+            <div class="sidebar__labels">
+              <span class="sidebar__labels-step">Step 1</span>
+              <span class="sidebar__labels-name">Your info</span>
             </div>
-            <div class="sidebar__steps">
-              <button class="sidebar__numbers" data-page="1">2</button>
-              <div class="sidebar__labels">
-                <span>Step 2</span>
-                <span>Select plan</span>
-              </div>
+          </div>
+          <div class="sidebar__steps">
+            <button class="sidebar__numbers" data-page="1">2</button>
+            <div class="sidebar__labels">
+              <span class="sidebar__labels-step">Step 2</span>
+              <span class="sidebar__labels-name">Select plan</span>
             </div>
-            <div class="sidebar__steps">
-              <button class="sidebar__numbers" data-page="2">3</button>
-              <div class="sidebar__labels">
-                <span>Step 3</span>
-                <span>Add-ons</span>
-              </div>
+          </div>
+          <div class="sidebar__steps">
+            <button class="sidebar__numbers" data-page="2">3</button>
+            <div class="sidebar__labels">
+              <span class="sidebar__labels-step">Step 3</span>
+              <span class="sidebar__labels-name">Add-ons</span>
             </div>
-            <div class="sidebar__steps">
-              <button class="sidebar__numbers" data-page="3">4</button>
-              <div class="sidebar__labels">
-                <span>Step 4</span>
-                <span>Summary</span>
-              </div>
+          </div>
+          <div class="sidebar__steps">
+            <button class="sidebar__numbers" data-page="3">4</button>
+            <div class="sidebar__labels">
+              <span class="sidebar__labels-step">Step 4</span>
+              <span class="sidebar__labels-name">Summary</span>
             </div>
           </div>
         </div>
-      </nav>
+      </div>
 
       <!-- Sidebar end -->
 
-      <div class="form__container">
-        <!-- Step 1 start -->
+      <div class="page__container">
+        <div class="form__container">
+          <!-- Step 1 start -->
 
-        <form id="form1" class="form form--1 show">
-          <h2>Personal info</h2>
-          <span class="description u-margin-bot-large"
-            >Please provide your name, email address, and phone number.</span
-          >
-          <label class="title label--1" for="name">Name</label>
-          <p class="alert">Please complete field.</p>
-          <input
-            class="input input--1"
-            type="text"
-            id="name"
-            name="name"
-            placeholder="e.g. Stephen King"
-            required
-          />
-          <label class="title label--1" for="email">Email Address</label>
-          <p class="alert">Please complete field.</p>
-          <input
-            class="input input--1"
-            type="email"
-            id="email"
-            name="email"
-            placeholder="e.g. stephenking@lorem.com"
-            required
-          />
-
-          <label class="title label--1" for="phone"> Phone Number </label>
-          <p class="alert">Please complete field.</p>
-          <input
-            class="input input--1"
-            type="tel"
-            id="phone"
-            name="phone"
-            placeholder="e.g. +1 234 567 890"
-            required
-          />
-        </form>
-
-        <!-- Step 1 end -->
-
-        <!-- Step 2 start -->
-
-        <form id="form2" class="form form--2">
-          <h2>Select your plan</h2>
-          <span class="description"
-            >You have the option of monthly or yearly billing.</span
-          >
-          <div class="card">
-            <div class="card__option">
-              <input
-                class="input input--2"
-                type="radio"
-                id="arcade"
-                name="subscription"
-                value="Arcade"
-                required
-                checked
-              />
-              <label class="label--2" for="arcade"> </label>
-            </div>
-            <div class="card__option">
-              <input
-                class="input input--2"
-                type="radio"
-                id="advanced"
-                name="subscription"
-                value="Advanced"
-              />
-              <label class="label--2" for="advanced">
-                <div class="plan__description advanced"></div>
-              </label>
-            </div>
-            <div class="card__option">
-              <input
-                class="input input--2"
-                type="radio"
-                id="pro"
-                name="subscription"
-                value="Pro"
-              />
-              <label class="label--2" for="pro">
-                <div class="plan__description pro"></div>
-              </label>
-            </div>
-          </div>
-
-          <div class="toggle__container">
-            <label class="toggle__label" for="toggle"
-              ><span class="monthly selected">Monthly</span
-              ><input
-                class="toggle"
-                type="checkbox"
-                id="toggle"
-                name="toggle"
-                value="pricing"
-              /><span class="yearly">Yearly</span></label
+          <form id="form1" class="form form--1 show">
+            <h2>Personal info</h2>
+            <span class="description u-margin-bot-large"
+              >Please provide your name, email address, and phone number.</span
             >
-          </div>
-        </form>
-
-        <!-- Step 2 end -->
-
-        <!-- Step 3 start -->
-
-        <form id="form3" class="form form--3">
-          <h2>Pick add-ons</h2>
-          <span class="description"
-            >Add-ons help enhance your gaming experience.</span
-          >
-          <div class="card">
-            <div class="card__option">
+            <div class="field__container">
+              <label class="title label--1" for="name">Name</label>
+              <p class="alert">Please complete field.</p>
               <input
-                class="input input--3"
-                type="checkbox"
-                id="online-service"
-                name="add-ons"
-                value="online-service"
+                class="input input--1"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="e.g. Stephen King"
+                required
               />
-              <label class="label--3" for="online-service"> </label>
-            </div>
-            <div class="card__option">
+              <label class="title label--1" for="email">Email Address</label>
+              <p class="alert">Please complete field.</p>
               <input
-                class="input input--3"
-                type="checkbox"
-                id="larger-storage"
-                name="add-ons"
-                value="larger-storage"
+                class="input input--1"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="e.g. stephenking@lorem.com"
+                required
               />
-              <label class="label--3" for="larger-storage"> </label>
-            </div>
-            <div class="card__option">
+
+              <label class="title label--1" for="phone"> Phone Number </label>
+              <p class="alert">Please complete field.</p>
               <input
-                class="input input--3"
-                type="checkbox"
-                id="customizable-profile"
-                name="add-ons"
-                value="customizable-profile"
+                class="input input--1"
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="e.g. +1 234 567 890"
+                required
               />
-              <label class="label--3" for="customizable-profile"> </label>
             </div>
-          </div>
-        </form>
+          </form>
 
-        <!-- Step 3 end -->
+          <!-- Step 1 end -->
 
-        <!-- Step 4 start -->
+          <!-- Step 2 start -->
 
-        <form id="form4" class="form form--4">
-          <h2>Finishing up</h2>
-          <span class="description u-margin-bot-large"
-            >Double-check everything looks OK before confirming.</span
-          >
-          <div class="card card__summary">
-            <div class="card__plan-chosen">
-              <div class="summary_details">
-                <h3 class="summary__title title">
-                  <span class="summary__plan-name">Plan</span>
-                </h3>
-                <!-- <a href="#form2" class="info change-sub">Change</a> -->
+          <form id="form2" class="form form--2">
+            <h2>Select your plan</h2>
+            <span class="description"
+              >You have the option of monthly or yearly billing.</span
+            >
+            <div class="card">
+              <div class="card__option">
+                <input
+                  class="input input--2"
+                  type="radio"
+                  id="arcade"
+                  name="subscription"
+                  value="Arcade"
+                  required
+                  checked
+                />
+                <label class="label--2" for="arcade"> </label>
               </div>
-              <span class="summary__plan-price title">$x/mo</span>
+              <div class="card__option">
+                <input
+                  class="input input--2"
+                  type="radio"
+                  id="advanced"
+                  name="subscription"
+                  value="Advanced"
+                />
+                <label class="label--2" for="advanced"> </label>
+              </div>
+              <div class="card__option">
+                <input
+                  class="input input--2"
+                  type="radio"
+                  id="pro"
+                  name="subscription"
+                  value="Pro"
+                />
+                <label class="label--2" for="pro"> </label>
+              </div>
             </div>
-            <div class="card__add-ons-chosen">
-              <div class="summary__details summary__addon-details"></div>
+
+            <div class="toggle__container">
+              <label class="toggle__label" for="toggle"
+                ><span class="monthly selected">Monthly</span
+                ><input
+                  class="toggle"
+                  type="checkbox"
+                  id="toggle"
+                  name="toggle"
+                  value="pricing"
+                /><span class="yearly">Yearly</span></label
+              >
             </div>
+          </form>
+
+          <!-- Step 2 end -->
+
+          <!-- Step 3 start -->
+
+          <form id="form3" class="form form--3">
+            <h2>Pick add-ons</h2>
+            <span class="description"
+              >Add-ons help enhance your gaming experience.</span
+            >
+            <div class="addon__container">
+              <div class="addon__option">
+                <input
+                  class="input input--3"
+                  type="checkbox"
+                  id="online-service"
+                  name="add-ons"
+                  value="online-service"
+                />
+                <label class="label--3" for="online-service"> </label>
+              </div>
+
+              <div class="addon__option">
+                <input
+                  class="input input--3"
+                  type="checkbox"
+                  id="larger-storage"
+                  name="add-ons"
+                  value="larger-storage"
+                />
+                <label class="label--3" for="larger-storage"> </label>
+              </div>
+
+              <div class="addon__option">
+                <input
+                  class="input input--3"
+                  type="checkbox"
+                  id="customizable-profile"
+                  name="add-ons"
+                  value="customizable-profile"
+                />
+                <label class="label--3" for="customizable-profile"> </label>
+              </div>
+            </div>
+          </form>
+
+          <!-- Step 3 end -->
+
+          <!-- Step 4 start -->
+
+          <form id="form4" class="form form--4">
+            <h2>Finishing up</h2>
+            <span class="description u-margin-bot-large"
+              >Double-check everything looks OK before confirming.</span
+            >
+            <div class="card__summary">
+              <div class="card__plan-chosen">
+                <div class="summary_details">
+                  <h3 class="summary__title title">
+                    <span class="summary__plan-name">Plan</span>
+                  </h3>
+                  <!-- <a href="#form2" class="info change-sub">Change</a> -->
+                </div>
+                <span class="summary__plan-price title">$x/mo</span>
+              </div>
+              <div class="card__add-ons-chosen">
+                <div class="summary__details summary__addon-details"></div>
+              </div>
+            </div>
+            <div class="card__total">
+              <span class="summary__total-name">Total (per month)</span>
+              <span class="summary__total-price">$x/mo</span>
+            </div>
+          </form>
+
+          <!-- Step 4 end -->
+
+          <!-- Step 5 start -->
+
+          <form id="form5" class="form form--5">
+            <img
+              class="icon"
+              src="assets/images/icon-thank-you.svg"
+              alt="Thank you icon"
+            />
+            <h2>Thank you!</h2>
+            <p class="description u-margin-bot-large">
+              Thanks for confirming your subscription! We hope you have fun
+              using our platform. If you ever need support, please feel free to
+              email us at support@loremgaming.com.
+            </p>
+            <p class="description u-margin-bot-small">Coded by Jhon Asay</p>
+          </form>
+
+          <!-- Step 5 end -->
+        </div>
+
+        <div class="button__section">
+          <div class="btns flex">
+            <button
+              class="btn btn--secondary hidden"
+              type="button"
+              form="form1"
+            >
+              Go Back
+            </button>
+            <button
+              class="btn btn--next btn--primary"
+              type="button"
+              form="form1"
+            >
+              Next Step
+            </button>
           </div>
-          <div class="card__total">
-            <span class="summary__total-name">Total (per month)</span>
-            <span class="summary__total-price">$x/mo</span>
+
+          <div class="btns">
+            <button class="btn btn--back btn--secondary" type="button">
+              Go Back
+            </button>
+            <button class="btn btn--next btn--primary" type="button">
+              Next Step
+            </button>
           </div>
-        </form>
 
-        <!-- Step 4 end -->
+          <div class="btns">
+            <button class="btn btn--back btn--secondary" type="button">
+              Go Back
+            </button>
+            <button class="btn btn--next btn--primary" type="button">
+              Next Step
+            </button>
+          </div>
 
-        <!-- Step 5 start -->
-
-        <form id="form5" class="form form--5">
-          <img
-            class="icon"
-            src="assets/images/icon-thank-you.svg"
-            alt="Thank you icon"
-          />
-          <h2>Thank you!</h2>
-          <p class="description u-margin-bot-large">
-            Thanks for confirming your subscription! We hope you have fun using
-            our platform. If you ever need support, please feel free to email us
-            at support@loremgaming.com.
-          </p>
-          <p class="description u-margin-bot-small">Coded by Jhon Asay</p>
-        </form>
-
-        <!-- Step 5 end -->
-      </div>
-
-      <div class="button__section">
-        <div class="btns flex">
-          <button class="btn btn--secondary hidden" type="button" form="form1">
-            Go Back
-          </button>
-          <button class="btn btn--next btn--primary" type="button" form="form1">
-            Next Step
-          </button>
-        </div>
-
-        <div class="btns">
-          <button class="btn btn--back btn--secondary" type="button">
-            Go Back
-          </button>
-          <button class="btn btn--next btn--primary" type="button">
-            Next Step
-          </button>
-        </div>
-
-        <div class="btns">
-          <button class="btn btn--back btn--secondary" type="button">
-            Go Back
-          </button>
-          <button class="btn btn--next btn--primary" type="button">
-            Next Step
-          </button>
-        </div>
-
-        <div class="btns">
-          <button class="btn btn--back btn--secondary" type="button">
-            Go Back
-          </button>
-          <button class="btn btn--confirm" type="button">Confirm</button>
+          <div class="btns">
+            <button class="btn btn--back btn--secondary" type="button">
+              Go Back
+            </button>
+            <button class="btn btn--confirm" type="button">Confirm</button>
+          </div>
         </div>
       </div>
     </div>

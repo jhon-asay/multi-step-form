@@ -1,13 +1,16 @@
 body {
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-family: var(--font-primary-regular), sans-serif;
   letter-spacing: -0.025rem;
+  background-color: rgb(193, 218, 255);
+  height: 100vh;
 }
 
 h2 {
   font-family: var(--font-primary-bold);
   color: var(--color-primary);
   margin-bottom: 0.75rem;
+  font-size: 3rem;
 }
 
 .title {
@@ -21,7 +24,6 @@ h2 {
 
 .description {
   display: inline-block;
-  font-size: 1.6rem;
   line-height: 1.4;
   color: var(--color-secondary);
 }
