@@ -477,6 +477,7 @@ h2 {
   }
   .form {
     justify-self: center;
+    padding: 0;
   }
   .field__container {
     display: flex;
