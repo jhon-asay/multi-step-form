@@ -148,3 +148,5 @@ The name and telephone validations were easy to implement, however, email was no
 - Website - [Jhon Asay (Personal Portfolio)](https://www.jhonasay.com)
 - Frontend Mentor - [@jhon-asay](https://www.frontendmentor.io/profile/jhon-asay)
 - LinkedIn - [@jhon-asay](https://www.linkedin.com/in/jhon-asay/)
+
+Thank you for visiting my project. If you have any questions or feedback, feel free to connect with me on LinkedIn using the link above. If you'd like to see more projects you can check out my personal portfolio linked above. I hope you enjoyed this project and look forward to connecting with you soon.
