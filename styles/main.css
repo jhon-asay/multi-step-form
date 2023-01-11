@@ -394,20 +394,11 @@ h2 {
   }
 }
 @media only screen and (min-width: 56em) {
-  html {
-    font-size: 62.5%;
-  }
-  .form__container {
-    width: 75%;
-  }
   .form {
     padding: 4rem;
   }
 }
 @media only screen and (min-width: 75em) {
-  html {
-    font-size: 62.5%;
-  }
   body {
     display: flex;
     justify-content: center;

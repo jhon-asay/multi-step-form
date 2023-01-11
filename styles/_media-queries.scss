@@ -15,13 +15,6 @@
 
 @media only screen and (min-width: 56em) {
   // 896px
-  html {
-    font-size: 62.5%;
-  }
-
-  .form__container {
-    width: 75%;
-  }
 
   .form {
     padding: 4rem;
@@ -29,11 +22,7 @@
 }
 
 @media only screen and (min-width: 75em) {
-  // 1200px
-
-  html {
-    font-size: 62.5%;
-  }
+  // 1200px (Desktop)
 
   body {
     display: flex;

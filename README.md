@@ -1,96 +1,150 @@
-# Frontend Mentor - Multi-step form
+# Frontend Mentor - Multi-step form solution
 
-![Design preview for the Multi-step form coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a good understanding of HTML, CSS and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this multi-step form and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - Complete each step of the sequence
 - See a summary of their selections on the final step and confirm their order
 - View the optimal layout for the interface depending on their device's screen size
-- See hover and focus states for all interactive elements on the page
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Screenshots
 
-## Where to find everything
+<img src="assets/images/multi-step-form-page1.jpg" alt="Multi step form page 1" width="350" height="250">
+<img src="assets/images/multi-step-form-page2-yearly.jpg" alt="Multi step form page 2 yearly" width="150" height="250">
+<img src="assets/images/multi-step-form-page3-yearly.jpg" alt="Multi step form page 3 yearly" width="350" height="250">
+<img src="assets/images/multi-step-form-page4.jpg" alt="Multi step form page 4" width="150" height="250">
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+### Links
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+- Personal Portfolio - [Jhon Asay](https://www.jhonasay.com)
+- Live Site URL: [https://ja-multi-step-form.netlify.app](https://ja-multi-step-form.netlify.app/)
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+## My process
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+### Built with
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+- Semantic HTML5 markup
+- Sass custom properties
+- Flexbox
+- Mobile-first workflow
+- Vanilla JavaScript ES6
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### What I learned
 
-## Building your project
+This challenge was great because it had a lot of dynamic components that I had to figure out how to do. My problem solving skills were sharpened as I had to plan for the user's experience and interactions, making sure that every component worked as intended.
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+I learned how to record the user's data as the user progressed through the form by making functions that kept updating a UserInfo object in real time. I would later retrieve this data to confirm the user's choices in the final page of the form.
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+I learned that in CSS you can still use input functions even if they are hidden from the user. One example of this is for the user's plan choice, the radio buttons are hidden, however, the user is able to make his selection by clicking on the entire stylized label. Another example is when I used a checkbox input for the user's billing-term-toggle button. I hid the button and instead inserted an element ::before and ::after the "Yearly" span and styled it to look like a pill toggle button. See the code snippet below if you would like to try this yourself:
 
-## Deploying your project
+```html
+<label class="toggle__label" for="toggle">
+  <span class="monthly selected">Monthly</span>
+  <input
+    class="toggle"
+    type="checkbox"
+    id="toggle"
+    name="toggle"
+    value="pricing"
+  />
+  <span class="yearly">Yearly</span>
+</label>
+```
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+```css
+.toggle {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+.toggle + .yearly {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+/* This is the pill background */
+.toggle + .yearly::before {
+  content: "";
+  width: 5rem;
+  height: 2.5rem;
+  background-color: var(--color-primary);
+  border-radius: 20px;
+}
 
-## Create a custom `README.md`
+/* This is the switch that slides left and right */
+.toggle + .yearly::after {
+  position: absolute;
+  content: "";
+  left: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #fff;
+  border-radius: 10px;
+  transition: all 0.3s ease-out;
+}
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+.toggle:checked + .yearly::after {
+  transform: translateX(2.5rem);
+}
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+Something I tried for the first time is check a user's input in real time, match the value and record it into an object. I used two functions one was to return the correct value when it was selected and the other function then take that value and starts building the UserInfo class object. The recordInfo() function is called whenever the user clicks on the "Next Step" button, taking constant "inputs" as the arguement. See the code snippets below if you would like to try this yourself:
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+```js
+const findInfoForInput = (input, info) => {
+  const inputId = input.id;
+  for (let i = 0; i < info.length; i++) {
+    if (info[i].id === inputId) return info[i];
+  }
+};
 
-## Submitting your solution
+const inputs = document.querySelectorAll(".input");
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+const recordInfo = (inputs) => {
+  UserInfo.addOn.length = 0;
+  inputs.forEach((input) => {
+    if (input.checked && input.type === "radio") {
+      UserInfo.plan = findInfoForInput(input, Plans);
+    } else if (input.checked && input.type === "checkbox") {
+      UserInfo.addOn.push(findInfoForInput(input, AddOns));
+    }
+  });
+};
+```
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+Overall I worked on this project using vanilla JavaScript ES6 because there were many separate moving parts and I wanted practice with all of them. I do realize this makes the code messier than it had to be, being as how I had a lot of inserted HTML that could have been done better using React.js. Even so, I am proud that I was able to handle all challenges I had along the way. I will be remaking this project in React.js in the future just for comparison.
 
-## Sharing your solution
+### Continued development
 
-There are multiple places you can share your solution:
+The name and telephone validations were easy to implement, however, email was not as easy. The current validation only applies after the user includes an @ symbol in the input field, but they can skip through this by just not adding the @ symbol. I looked at many different ways to do this using Regular Expressions, but it seems this method is currently very limited when it comes to email patterns or testing for said patterns. I will revisit this challenge again in the future with a different approach.
 
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+### Useful resources
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+- [How to add mutiple functions to event listeners](https://stackoverflow.com/questions/25028853/addeventlistener-two-functions) - I wasn't sure how to add multiple functions to an event listener which was a problem since the "Next Step" button was responsible for matching, validating, recording and displaying the user's data. I really liked this method from StackOverflow of using an anonymous function to call every function listed within.
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+## Author
 
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- Website - [Jhon Asay (Personal Portfolio)](https://www.jhonasay.com)
+- Frontend Mentor - [@jhon-asay](https://www.frontendmentor.io/profile/jhon-asay)
+- LinkedIn - [@jhon-asay](https://www.linkedin.com/in/jhon-asay/)
