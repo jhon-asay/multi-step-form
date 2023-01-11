@@ -403,18 +403,18 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 1.6rem;
     background-color: rgb(193, 218, 255);
     position: relative;
   }
   .info {
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
   }
   .body__container {
     align-self: center;
     display: flex;
-    max-width: 109rem;
-    height: 75rem;
+    max-width: 95rem;
+    height: 50rem;
     background-color: white;
     border-radius: 20px;
   }
@@ -422,36 +422,37 @@ h2 {
     background-image: url(../assets/images/bg-sidebar-desktop.svg);
     background-size: cover;
     z-index: 1;
-    width: auto;
-    margin: 2rem;
+    width: 33%;
+    margin: 1.5rem;
+    border-radius: 10px;
   }
   .sidebar__column {
     flex-direction: column;
-    width: 100%;
-    padding: 4rem;
+    padding: 2rem;
   }
   .sidebar__steps {
     display: flex;
     width: 100%;
   }
   .sidebar__numbers {
-    font-size: 2rem;
     line-height: 0.5;
-    padding: 1rem 1.5rem;
+    padding: 1rem 1.15rem;
   }
   .sidebar__labels {
     display: flex;
-    width: 100%;
     flex-direction: column;
     margin-left: 2rem;
-    margin-right: 7rem;
     text-transform: uppercase;
   }
   .sidebar__labels-step {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--color-primary-light);
   }
   .sidebar__labels-name {
+    font-size: 1.5rem;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
     font-weight: 600;
     color: var(--color-tertiary);
   }
@@ -459,14 +460,17 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5rem;
+    width: 66%;
+    padding: 1.5rem 0;
+    margin-right: 2rem;
   }
   .form__container {
-    width: 60rem;
+    width: 100%;
     margin: 0;
     justify-self: center;
   }
   .form {
+    width: 44rem;
     justify-self: center;
     padding: 0;
   }
@@ -474,30 +478,40 @@ h2 {
     display: flex;
     flex-direction: column;
   }
+  .input--1 {
+    padding: 1rem;
+  }
   .card {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
   }
   .card__option {
     flex: 1;
   }
   .plan__icon {
-    margin-bottom: 5rem;
-    width: 5rem;
+    margin-bottom: 4rem;
+    width: 4rem;
   }
   .label--2 {
     display: block;
     padding: 2rem;
     flex: 1;
     border-radius: 10px;
+    font-size: 1.5rem;
+  }
+  .input--3 {
+    margin: 0 1rem;
   }
   .addon__option {
     width: 100%;
     align-items: center;
+    padding: 1rem;
   }
   .button__section {
+    background: none;
     position: static;
     margin-top: auto;
+    padding: 0 2rem 2rem 2rem;
   }
 }/*# sourceMappingURL=main.css.map */
