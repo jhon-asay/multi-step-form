@@ -226,7 +226,7 @@ const summaryPlanName = document.querySelector(".summary__plan-name");
 const summaryPlanPrice = document.querySelector(".summary__plan-price");
 const summaryAddOnName = document.querySelector(".summary__addon-name");
 const summaryAddOnPrice = document.querySelector(".summary__addon-price");
-const summaryAddOnDetails = document.querySelector(".summary__addon-details");
+const summaryAddOnDetails = document.querySelector(".card__add-ons-chosen");
 const summaryTotalName = document.querySelector(".summary__total-name");
 const summaryTotalPrice = document.querySelector(".summary__total-price");
 
@@ -260,16 +260,20 @@ const displayUserInfo = () => {
     summaryAddOnDetails.insertAdjacentHTML(
       "beforeend",
       `
-        <div class="summary__addon-details-row">
-          <h4 class="summary__addon-name info">
-            ${addon.name}
-          </h4>
-          <span class="summary__addon-price info">
-            $${
-              toggleInput.checked ? addon.yearlyPrice : addon.monthlyPrice
-            }/${termShort}
-          </span>
-        </div>`
+      
+        <div class="summary__details summary__addon-details">
+          <div class="summary__addon-details-row">
+            <h4 class="summary__addon-name info">
+              ${addon.name}
+            </h4>
+            <span class="summary__addon-price info">
+              $${
+                toggleInput.checked ? addon.yearlyPrice : addon.monthlyPrice
+              }/${termShort}
+            </span>
+          </div>
+        </div>
+      `
     );
   });
 

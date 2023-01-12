@@ -181,6 +181,10 @@
 
 .summary__addon-details {
   padding: 1.5rem;
+
+  &:not(:first-child) {
+    padding-top: 0;
+  }
 }
 
 .summary__addon-details-row {

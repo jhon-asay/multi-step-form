@@ -250,6 +250,9 @@ video {
 .summary__addon-details {
   padding: 1.5rem;
 }
+.summary__addon-details:not(:first-child) {
+  padding-top: 0;
+}
 
 .summary__addon-details-row {
   display: flex;
@@ -436,12 +439,12 @@ h2 {
   }
   .sidebar__numbers {
     line-height: 0.5;
-    padding: 1rem 1.15rem;
+    padding: 1rem 1.075rem;
   }
   .sidebar__labels {
     display: flex;
     flex-direction: column;
-    margin-left: 2rem;
+    margin-left: 1.5rem;
     text-transform: uppercase;
   }
   .sidebar__labels-step {
@@ -455,6 +458,7 @@ h2 {
     width: max-content;
     font-weight: 600;
     color: var(--color-tertiary);
+    margin-right: 4rem;
   }
   .page__container {
     display: flex;
@@ -462,7 +466,7 @@ h2 {
     align-items: center;
     width: 66%;
     padding: 1.5rem 0;
-    margin-right: 2rem;
+    margin-right: 1.5rem;
   }
   .form__container {
     width: 100%;
